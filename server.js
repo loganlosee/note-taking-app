@@ -37,6 +37,28 @@ app.post('/api/notes', (req, res) => {
   res.json(newNote);
 });
 
+app.delete('/api/notes/:id', (req, res) => {
+  const noteId = parseInt(req.params.id);
+
+  // Read the current notes from the db.json file
+  const notes = JSON.parse(fs.readFileSync(path.join(__dirname, 'db.json')));
+
+  // Find the index of the note with the specified ID
+  const noteIndex = notes.findIndex((note) => note.id === noteId);
+
+  // If the note is found, remove it from the array
+  if (noteIndex !== -1) {
+    notes.splice(noteIndex, 1);
+
+    // Write the updated notes back to the db.json file
+    fs.writeFileSync(path.join(__dirname, 'db.json'), JSON.stringify(notes, null, 2));
+
+    res.json({ success: true });
+  } else {
+    res.status(404).json({ error: 'Note not found' });
+  }
+});
+
 // HTML routes
 app.get('/notes', (req, res) => {
   // Return the notes.html file

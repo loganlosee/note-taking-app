@@ -1,11 +1,11 @@
 [
   {
-    "title": "Test Title",
-    "text": "Test text"
+    "title": "Write a Note",
+    "text": "(it will appear here!)"
   },
   {
     "title": "hi",
-    "text": "hi",
-    "id": 1699736817125
+    "text": "this is a note",
+    "id": 1699740823922
   }
 ]
