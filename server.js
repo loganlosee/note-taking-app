@@ -10,13 +10,17 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // API routes
-app.get('/db/db.json', (req, res) => {
-  // Read the notes from the db.json file and return them as JSON
-  const notes = JSON.parse(fs.readFileSync(path.join(__dirname, 'db.json')));
-  res.json(notes);
+app.get('/api/notes', (req, res) => {
+  try {
+    const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'db.json')));
+    res.json(data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
-app.post('/db/db.json', (req, res) => {
+app.post('/api/notes', (req, res) => {
   const newNote = req.body;
   const notes = JSON.parse(fs.readFileSync(path.join(__dirname, 'db.json')));
 

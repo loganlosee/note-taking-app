@@ -3,6 +3,7 @@ let noteTitle;
 let noteText;
 let saveNoteBtn;
 let newNoteBtn;
+let clearBtn; // Make sure to declare clearBtn
 let noteList;
 
 if (window.location.pathname === '/notes') {
@@ -11,7 +12,7 @@ if (window.location.pathname === '/notes') {
   noteText = document.querySelector('.note-textarea');
   saveNoteBtn = document.querySelector('.save-note');
   newNoteBtn = document.querySelector('.new-note');
-  clearBtn = document.querySelector('.clear-btn');
+  clearBtn = document.querySelector('.clear-btn'); // Make sure to declare clearBtn
   noteList = document.querySelectorAll('.list-container .list-group');
 }
 
