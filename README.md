@@ -40,6 +40,10 @@ A simple note-taking application to help you organize your thoughts and tasks.
 - Use the "New Note" button to start a new note.
 - Click on the "Clear Form" button to clear the form.
 
+## links
+- heroku https://note-taking-app-logan-losee-2c63a73aad3d.herokuapp.com/
+- github https://github.com/loganlosee/note-taking-app
+
 ## API Routes
 - GET /api/notes: Retrieve all saved notes.
 - POST /api/notes: Save a new note.
